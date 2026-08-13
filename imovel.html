@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="page-imovel">
 
   <header class="site-header" id="topo">
     <div class="header-inner">
@@ -65,23 +65,25 @@
 
     <section class="section section--editorial property-description">
       <div class="section-inner section-inner--editorial">
-        <div class="editorial-grid">
-          <div>
+        <div class="property-copy-grid">
+          <article class="property-panel property-panel--description">
             <p class="eyebrow">Descrição</p>
-            <p class="body-text body-text--narrow" id="property-description" style="max-width: 48ch;"></p>
-          </div>
-          <div>
+            <p class="property-copy-text" id="property-description"></p>
+          </article>
+          <aside class="property-panel property-panel--features">
             <p class="eyebrow">Características</p>
             <ul class="property-features" id="property-features"></ul>
-          </div>
+          </aside>
         </div>
       </div>
     </section>
 
     <section class="section section--editorial property-neighborhood">
       <div class="section-inner section-inner--editorial">
-        <p class="eyebrow">Sobre a região</p>
-        <p class="body-text body-text--narrow" id="property-neighborhood" style="max-width: 60ch;"></p>
+        <div class="property-region">
+          <p class="eyebrow">Sobre a região</p>
+          <p class="property-region-text" id="property-neighborhood"></p>
+        </div>
       </div>
     </section>
 
