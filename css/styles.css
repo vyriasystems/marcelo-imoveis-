@@ -1180,12 +1180,25 @@ body.is-nav-open {
   background-color: var(--color-text-muted);
 }
 
+.property-agent .section-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.property-agent-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.15rem;
+}
+
 .property-agent-card {
   display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  padding: 2rem;
-  border: 1px solid var(--color-line-subtle);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem 1.6rem;
+  border: 1px solid var(--color-line);
   background-color: var(--color-surface);
 }
 
@@ -1200,14 +1213,33 @@ body.is-nav-open {
 
 .property-agent-name {
   font-family: var(--font-display);
-  font-size: 1.25rem;
-  margin-top: 0.5rem;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  margin-top: 0;
 }
 
 .property-agent-creci {
   font-size: 0.75rem;
-  color: var(--color-text-light);
-  margin-bottom: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  margin: 0.35rem 0 0.85rem;
+}
+
+.property-agent-whatsapp {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-text);
+  padding-bottom: 0.2rem;
+}
+
+.property-agent-whatsapp:hover,
+.property-agent-whatsapp:focus-visible {
+  color: var(--color-text-muted);
+  border-color: var(--color-text-muted);
 }
 
 .property-video {
@@ -1241,14 +1273,28 @@ body.is-nav-open {
   }
 
   .property-gallery-thumbs {
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    grid-template-columns: none;
     grid-template-rows: none;
-    overflow: visible;
+    gap: 0.35rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .property-gallery-thumbs::-webkit-scrollbar {
+    display: none;
   }
 
   .property-gallery-thumb {
-    min-height: 5rem;
-    aspect-ratio: 4 / 3;
+    flex: 0 0 3.6rem;
+    width: 3.6rem;
+    height: 2.65rem;
+    min-height: 0;
+    aspect-ratio: auto;
   }
 
   .property-summary-top {
@@ -1268,9 +1314,8 @@ body.is-nav-open {
     grid-template-columns: 1fr 1fr;
   }
 
-  .property-agent-card {
-    flex-direction: column;
-    align-items: flex-start;
+  .property-agent-grid {
+    grid-template-columns: 1fr;
   }
 }
 

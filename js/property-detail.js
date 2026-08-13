@@ -165,13 +165,48 @@
         galleryEl.appendChild(wrapper);
       });
 
-      // Corretor
-      if (p.corretor) {
-        document.getElementById('property-agent-photo').src = p.corretor.foto;
-        document.getElementById('property-agent-photo').alt = p.corretor.nome;
-        document.getElementById('property-agent-name').textContent = p.corretor.nome;
-        document.getElementById('property-agent-creci').textContent = p.corretor.creci;
-        document.getElementById('property-agent-whatsapp').href = waLink;
+      // Atendimento: corretor do anúncio + equipe
+      var agentGrid = document.getElementById('property-agent-grid');
+      if (agentGrid) {
+        var principal = {
+          nome: (p.corretor && p.corretor.nome) || 'Marcelo Antonio',
+          creci: (p.corretor && p.corretor.creci) || 'CRECI 40.309',
+          foto: (p.corretor && p.corretor.foto) || 'images/corretor/marcelo.png',
+          whatsapp: (p.corretor && p.corretor.whatsapp) || '5562995747746',
+          telefone: '(62) 9 9574-7746'
+        };
+        var equipe = [
+          {
+            nome: 'Niedja Delmondes',
+            creci: 'CRECI 48.686',
+            foto: 'images/equipe/niedja-delmondes.png',
+            whatsapp: '5562992398271',
+            telefone: '(62) 9 9239-8271'
+          },
+          {
+            nome: 'Christian Henrique',
+            creci: 'CRECI 48.604',
+            foto: 'images/equipe/christian-henrique.png',
+            whatsapp: '5562994792289',
+            telefone: '(62) 9 9479-2289'
+          }
+        ].filter(function (agent) {
+          return agent.whatsapp !== principal.whatsapp;
+        });
+
+        agentGrid.innerHTML = [principal].concat(equipe).map(function (agent) {
+          var link = 'https://wa.me/' + agent.whatsapp + '?text=' + mensagem;
+          return (
+            '<article class="property-agent-card">' +
+              '<img src="' + escapeHtml(agent.foto) + '" alt="' + escapeHtml(agent.nome) + '" class="property-agent-photo">' +
+              '<div>' +
+                '<p class="property-agent-name">' + escapeHtml(agent.nome) + '</p>' +
+                '<p class="property-agent-creci">' + escapeHtml(agent.creci) + '</p>' +
+                '<a class="property-agent-whatsapp" href="' + escapeHtml(link) + '" target="_blank" rel="noopener noreferrer">WhatsApp ' + escapeHtml(agent.telefone) + '</a>' +
+              '</div>' +
+            '</article>'
+          );
+        }).join('');
       }
 
       // Imóveis relacionados
