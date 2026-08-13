@@ -25,7 +25,7 @@
         var cover = (p.fotos && p.fotos[0]) || '';
         var card = document.createElement('a');
         card.className = 'property-card';
-        card.href = 'imovel?id=' + encodeURIComponent(p.id);
+        card.href = 'imovel.html?id=' + encodeURIComponent(p.id);
         card.setAttribute('role', 'listitem');
         card.setAttribute('aria-label', p.titulo + ' — ' + p.bairro);
 

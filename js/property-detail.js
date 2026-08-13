@@ -182,7 +182,7 @@
         .forEach(function (r) {
           var card = document.createElement('a');
           card.className = 'portfolio-card';
-          card.href = 'imovel?id=' + encodeURIComponent(r.id);
+          card.href = 'imovel.html?id=' + encodeURIComponent(r.id);
           card.innerHTML =
             '<div class="portfolio-card-image"><img src="' + escapeHtml(r.fotos[0]) + '" alt="' + escapeHtml(r.titulo) + '"></div>' +
             '<p class="portfolio-card-location">' + escapeHtml(r.bairro) + '</p>' +

@@ -19,8 +19,8 @@ jobs:
       - name: Prepare site
         run: |
           mkdir -p _site
-          cp index.html .nojekyll _site/
-          cp -r css js images videos _site/
+          cp index.html imovel.html .nojekyll _site/
+          cp -r css js images videos data _site/
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
