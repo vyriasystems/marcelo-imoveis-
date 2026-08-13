@@ -3,12 +3,18 @@ const path = require('path');
 
 const root = path.join(__dirname, '..');
 const dist = path.join(root, 'dist');
-const assets = ['css', 'js', 'images', 'videos'];
+const assets = ['css', 'js', 'images', 'videos', 'data'];
+const pages = ['index.html', 'imovel.html'];
 
 fs.rmSync(dist, { recursive: true, force: true });
 fs.mkdirSync(dist, { recursive: true });
 
-fs.copyFileSync(path.join(root, 'index.html'), path.join(dist, 'index.html'));
+pages.forEach(function (page) {
+  const source = path.join(root, page);
+  if (fs.existsSync(source)) {
+    fs.copyFileSync(source, path.join(dist, page));
+  }
+});
 
 if (fs.existsSync(path.join(root, '.nojekyll'))) {
   fs.copyFileSync(path.join(root, '.nojekyll'), path.join(dist, '.nojekyll'));
