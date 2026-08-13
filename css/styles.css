@@ -2266,3 +2266,153 @@ body.is-nav-open {
   will-change: transform;
   transition: transform 0.1s linear;
 }
+
+/* =============================================
+   Scroll effects — fichas de imóvel
+   ============================================= */
+
+.page-imovel .site-header {
+  transition: box-shadow 0.35s ease, background-color 0.35s ease, border-color 0.35s ease;
+}
+
+.page-imovel .site-header.is-scrolled {
+  background-color: rgba(236, 233, 228, 0.97);
+  border-bottom-color: var(--color-line);
+  box-shadow: 0 10px 30px rgba(28, 27, 25, 0.06);
+}
+
+.px-reveal {
+  opacity: 0;
+  transform: translate3d(0, 2rem, 0);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    clip-path 1s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.85s ease;
+  transition-delay: var(--px-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.px-reveal[data-reveal="fade-left"] {
+  transform: translate3d(2rem, 0, 0);
+}
+
+.px-reveal[data-reveal="fade-right"] {
+  transform: translate3d(-2rem, 0, 0);
+}
+
+.px-reveal[data-reveal="clip"] {
+  opacity: 1;
+  transform: none;
+  clip-path: inset(12% 8% 12% 8%);
+  filter: saturate(0.85);
+}
+
+.px-reveal[data-reveal="hero"] {
+  opacity: 0;
+  transform: translate3d(0, 1.25rem, 0) scale(0.985);
+}
+
+.px-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  clip-path: inset(0 0 0 0);
+  filter: none;
+}
+
+.px-reveal-child {
+  opacity: 0;
+  transform: translate3d(0, 1rem, 0);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--px-delay, 0ms);
+}
+
+.px-reveal.is-visible .px-reveal-child,
+.px-reveal.is-visible > .px-reveal-child {
+  opacity: 1;
+  transform: none;
+}
+
+.px-parallax {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.px-parallax img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+  transform: translate3d(0, 0, 0) scale(1.08);
+  transition: transform 0.12s linear;
+}
+
+.property-gallery-grid .property-gallery-slot .px-parallax {
+  aspect-ratio: 4 / 3;
+  height: auto;
+}
+
+.property-gallery-grid .property-gallery-slot .px-parallax img {
+  aspect-ratio: 4 / 3;
+}
+
+.page-imovel .property-video-frame.px-reveal[data-reveal="clip"] {
+  clip-path: inset(8% 4%);
+  transform: scale(0.97);
+}
+
+.page-imovel .property-video-frame.px-reveal.is-visible {
+  clip-path: inset(0 0 0 0);
+  transform: none;
+}
+
+.page-imovel .property-region.px-reveal.is-visible {
+  animation: px-region-line 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes px-region-line {
+  from {
+    border-left-color: transparent;
+  }
+  to {
+    border-left-color: rgba(247, 245, 242, 0.28);
+  }
+}
+
+.page-imovel .property-gallery-main.is-visible .gallery-main-image {
+  animation: px-hero-settle 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes px-hero-settle {
+  from {
+    filter: brightness(0.92);
+  }
+  to {
+    filter: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .px-reveal,
+  .px-reveal-child {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    filter: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .px-parallax img {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .page-imovel .property-gallery-main.is-visible .gallery-main-image,
+  .page-imovel .property-region.px-reveal.is-visible {
+    animation: none !important;
+  }
+}

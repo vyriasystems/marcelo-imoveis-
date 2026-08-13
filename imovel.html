@@ -11,6 +11,8 @@
 </head>
 <body class="page-imovel">
 
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
   <header class="site-header" id="topo">
     <div class="header-inner">
       <a href="index.html" class="header-logo" aria-label="Marcelo Antonio Imóveis — Início">
@@ -32,7 +34,7 @@
 
   <main class="site-main">
 
-    <nav class="property-breadcrumb" aria-label="Caminho">
+    <nav class="property-breadcrumb px-reveal" aria-label="Caminho" data-reveal="fade-up">
       <a href="index.html#informacoes">Portfólio</a>
       <span aria-hidden="true">/</span>
       <span id="breadcrumb-bairro"></span>
@@ -48,7 +50,7 @@
 
     <section class="section section--editorial property-summary">
       <div class="section-inner section-inner--editorial">
-        <div class="property-summary-top">
+        <div class="property-summary-top px-reveal" data-reveal="fade-up">
           <div>
             <p class="eyebrow" id="property-location"></p>
             <h1 class="section-title section-title--editorial" id="property-title"></h1>
@@ -66,13 +68,13 @@
     <section class="section section--editorial property-description">
       <div class="section-inner section-inner--editorial">
         <div class="property-copy-grid">
-          <article class="property-panel property-panel--description">
+          <article class="property-panel property-panel--description px-reveal" data-reveal="fade-right">
             <p class="eyebrow">Descrição</p>
             <p class="property-copy-text" id="property-description"></p>
           </article>
-          <aside class="property-panel property-panel--features">
+          <aside class="property-panel property-panel--features px-reveal" data-reveal="fade-left">
             <p class="eyebrow">Características</p>
-            <ul class="property-features" id="property-features"></ul>
+            <ul class="property-features" id="property-features" data-reveal-children></ul>
           </aside>
         </div>
       </div>
@@ -80,9 +82,9 @@
 
     <section class="section section--editorial property-video" id="property-video-section" hidden>
       <div class="section-inner section-inner--editorial">
-        <p class="eyebrow">Tour do imóvel</p>
-        <h2 class="section-title section-title--editorial">Veja a casa em movimento</h2>
-        <div class="property-video-frame">
+        <p class="eyebrow px-reveal" data-reveal="fade-up">Tour do imóvel</p>
+        <h2 class="section-title section-title--editorial px-reveal" data-reveal="fade-up">Veja a casa em movimento</h2>
+        <div class="property-video-frame px-reveal" data-reveal="clip">
           <video id="property-video" controls playsinline preload="metadata"></video>
         </div>
       </div>
@@ -90,7 +92,7 @@
 
     <section class="section section--editorial property-neighborhood">
       <div class="section-inner section-inner--editorial">
-        <div class="property-region">
+        <div class="property-region px-reveal" data-reveal="fade-up">
           <p class="eyebrow">Sobre a região</p>
           <p class="property-region-text" id="property-neighborhood"></p>
         </div>
@@ -99,14 +101,14 @@
 
     <section class="section section--editorial property-agent">
       <div class="section-inner">
-        <p class="eyebrow">Atendimento deste imóvel</p>
-        <div class="property-agent-grid" id="property-agent-grid"></div>
+        <p class="eyebrow px-reveal" data-reveal="fade-up">Atendimento deste imóvel</p>
+        <div class="property-agent-grid px-reveal" id="property-agent-grid" data-reveal="stagger"></div>
       </div>
     </section>
 
     <section class="section section--gallery" id="property-gallery-section">
       <div class="section-inner section-inner--gallery">
-        <header class="gallery-header">
+        <header class="gallery-header px-reveal" data-reveal="fade-up">
           <p class="eyebrow">Galeria completa</p>
           <h2 class="section-title">Cada ambiente,<br>em detalhe</h2>
         </header>
@@ -118,15 +120,15 @@
 
     <section class="section section--editorial property-related">
       <div class="section-inner section-inner--editorial">
-        <p class="eyebrow">Você também pode gostar</p>
-        <h2 class="section-title section-title--editorial">Outros imóveis</h2>
-        <div class="portfolio-grid" id="related-properties"></div>
+        <p class="eyebrow px-reveal" data-reveal="fade-up">Você também pode gostar</p>
+        <h2 class="section-title section-title--editorial px-reveal" data-reveal="fade-up">Outros imóveis</h2>
+        <div class="portfolio-grid px-reveal" id="related-properties" data-reveal="stagger"></div>
       </div>
     </section>
 
     <section class="section section--contact">
       <div class="section-inner section-inner--contact">
-        <div class="content-block content-block--center" style="margin-inline: auto;">
+        <div class="content-block content-block--center px-reveal" style="margin-inline: auto;" data-reveal="fade-up">
           <p class="eyebrow">Interessado neste imóvel?</p>
           <h2 class="section-title">Vamos conversar</h2>
           <address class="contact-details">
@@ -150,5 +152,6 @@
 
   <script src="js/main.js"></script>
   <script src="js/property-detail.js"></script>
+  <script src="js/property-scroll.js"></script>
 </body>
 </html>

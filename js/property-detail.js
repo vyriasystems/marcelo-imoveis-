@@ -273,6 +273,8 @@
             related.appendChild(card);
           });
       }
+
+      document.dispatchEvent(new CustomEvent('property:ready'));
     })
     .catch(function (err) {
       console.error('Erro ao carregar imóvel:', err);
@@ -280,5 +282,6 @@
       var desc = document.getElementById('property-description');
       if (title) title.textContent = 'Não foi possível carregar o imóvel';
       if (desc) desc.textContent = 'Recarregue a página ou volte ao portfólio.';
+      document.dispatchEvent(new CustomEvent('property:ready'));
     });
 })();
