@@ -18,14 +18,29 @@
       .replace(/"/g, '&quot;');
   }
 
-  fetch('data/properties.json')
+  function getSiteRoot() {
+    var path = window.location.pathname;
+    if (/\.html$/i.test(path)) {
+      return path.replace(/\/[^/]+$/, '/') || '/';
+    }
+    if (path.endsWith('/')) return path;
+    return path.replace(/\/[^/]+$/, '/') || '/';
+  }
+
+  function resolveAsset(path) {
+    if (!path) return '';
+    if (/^(https?:|data:|\/)/i.test(path)) return path;
+    return getSiteRoot() + path.replace(/^\.\//, '');
+  }
+
+  fetch(resolveAsset('data/properties.json'))
     .then(function (res) { return res.json(); })
     .then(function (properties) {
       properties.forEach(function (p) {
-        var cover = (p.fotos && p.fotos[0]) || '';
+        var cover = resolveAsset((p.fotos && p.fotos[0]) || '');
         var card = document.createElement('a');
         card.className = 'property-card';
-        card.href = 'imovel.html?id=' + encodeURIComponent(p.id);
+        card.href = 'imovel?id=' + encodeURIComponent(p.id);
         card.setAttribute('role', 'listitem');
         card.setAttribute('aria-label', p.titulo + ' — ' + p.bairro);
 

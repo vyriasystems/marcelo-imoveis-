@@ -18,8 +18,9 @@ jobs:
 
       - name: Prepare site
         run: |
-          mkdir -p _site
+          mkdir -p _site/imovel
           cp index.html imovel.html .nojekyll _site/
+          cp imovel.html _site/imovel/index.html
           cp -r css js images videos data _site/
 
       - name: Deploy to gh-pages

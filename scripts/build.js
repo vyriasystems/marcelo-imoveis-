@@ -16,6 +16,13 @@ pages.forEach(function (page) {
   }
 });
 
+// Garante /imovel?id=... em hosts estáticos (GitHub Pages / Vercel)
+const imovelPage = path.join(root, 'imovel.html');
+if (fs.existsSync(imovelPage)) {
+  fs.mkdirSync(path.join(dist, 'imovel'), { recursive: true });
+  fs.copyFileSync(imovelPage, path.join(dist, 'imovel', 'index.html'));
+}
+
 if (fs.existsSync(path.join(root, '.nojekyll'))) {
   fs.copyFileSync(path.join(root, '.nojekyll'), path.join(dist, '.nojekyll'));
 }
