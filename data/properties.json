@@ -339,6 +339,58 @@
     "video": "videos/imovel-06-tour.mp4"
   },
   {
+    "id": "vila-bonsucesso",
+    "titulo": "Sobrado com 4 quartos, 2 suítes e piscina",
+    "bairro": "Vila Bonsucesso",
+    "cidade": "Senador Canedo",
+    "terreno": "316 m²",
+    "construida": "205 m²",
+    "dormitorios": "4 dorms",
+    "suites": "2 suítes",
+    "vagas": "2 vagas",
+    "banheiros": "1 lavabo",
+    "condominio": null,
+    "valorCondominio": null,
+    "iptu": null,
+    "preco": "R$ 1.200.000",
+    "descricao": "Sobrado de rua, amplo e completo na Vila Bonsucesso, em Senador Canedo — uma das melhores localizações da região, em avenida de duas pistas. Quatro quartos, sendo duas suítes (uma com closet espelhado), lavabo, sala de TV com painel ripado e LED, cozinha gourmet integrada com ilha, cooktop e planejados, varanda gourmet, piscina e garagem coberta para dois carros. Escada contemporânea com guarda-corpo de vidro, piso em porcelanato e iluminação em LED. 205 m² de construção em terreno de 316 m².",
+    "caracteristicas": [
+      "Casa de rua",
+      "4 quartos, sendo 2 suítes",
+      "Suíte com closet espelhado",
+      "Cozinha gourmet com ilha e cooktop",
+      "Planejados prontos",
+      "Sala de TV com painel ripado",
+      "Escada com guarda-corpo de vidro",
+      "Piscina",
+      "Varanda gourmet",
+      "Lavabo",
+      "Garagem coberta para 2 carros",
+      "Piso em porcelanato",
+      "Iluminação em LED"
+    ],
+    "sobreOBairro": "A Vila Bonsucesso é uma das melhores localizações de Senador Canedo, com avenida de duas pistas e fácil acesso às principais vias da região — o endereço certo para quem busca casa ampla, completa e bem posicionada.",
+    "corretor": {
+      "nome": "Marcelo Antonio",
+      "creci": "CRECI 40.309",
+      "foto": "images/corretor/marcelo.png",
+      "whatsapp": "5562995747746"
+    },
+    "fotos": [
+      "images/imoveis/imovel-09-foto-1.jpg",
+      "images/imoveis/imovel-09-foto-2.jpg",
+      "images/imoveis/imovel-09-foto-3.jpg",
+      "images/imoveis/imovel-09-foto-4.jpg",
+      "images/imoveis/imovel-09-foto-5.jpg",
+      "images/imoveis/imovel-09-foto-6.jpg",
+      "images/imoveis/imovel-09-foto-7.jpg",
+      "images/imoveis/imovel-09-foto-8.jpg",
+      "images/imoveis/imovel-09-foto-9.jpg",
+      "images/imoveis/imovel-09-foto-10.jpg"
+    ],
+    "video": "videos/imovel-09-tour.mp4"
+  },
+  {
     "id": "jardins-napoles",
     "titulo": "Sobrado alto padrão com 3 suítes e piscina",
     "bairro": "Jardins Nápoles",
