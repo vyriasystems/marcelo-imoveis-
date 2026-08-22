@@ -33,9 +33,24 @@
     return getSiteRoot() + path.replace(/^\.\//, '');
   }
 
+  function parsePrice(preco) {
+    if (!preco) return null;
+    var digits = String(preco).replace(/\D/g, '');
+    return digits ? parseInt(digits, 10) : null;
+  }
+
   fetch(resolveAsset('data/properties.json'))
     .then(function (res) { return res.json(); })
     .then(function (properties) {
+      properties.sort(function (a, b) {
+        var pa = parsePrice(a.preco);
+        var pb = parsePrice(b.preco);
+        if (pa == null && pb == null) return 0;
+        if (pa == null) return -1;
+        if (pb == null) return 1;
+        return pa - pb;
+      });
+
       properties.forEach(function (p) {
         var cover = resolveAsset((p.fotos && p.fotos[0]) || '');
         var card = document.createElement('a');
@@ -46,6 +61,9 @@
 
         var parkingHidden = p.vagas ? '' : ' hidden';
         var parkingLabel = p.vagas || '— vagas';
+        var priceHtml = p.preco
+          ? '<p class="property-card__price">' + escapeHtml(p.preco) + '</p>'
+          : '';
 
         card.innerHTML =
           '<div class="property-card__media">' +
@@ -67,7 +85,7 @@
                   '<li class="property-card__spec">' + ICONS.suites + '<span>' + escapeHtml(p.suites) + '</span></li>' +
                   '<li class="property-card__spec"' + parkingHidden + '>' + ICONS.parking + '<span>' + escapeHtml(parkingLabel) + '</span></li>' +
                 '</ul>' +
-                '<p class="property-card__price">' + escapeHtml(p.preco) + '</p>' +
+                priceHtml +
               '</div>' +
             '</div>' +
           '</div>';

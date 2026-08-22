@@ -60,9 +60,15 @@
       document.getElementById('breadcrumb-bairro').textContent = p.bairro;
       document.getElementById('property-location').textContent = p.bairro + ' · ' + p.cidade;
       document.getElementById('property-title').textContent = p.titulo;
-      document.getElementById('property-price').textContent = p.preco;
+      var priceEl = document.getElementById('property-price');
+      if (p.preco) {
+        priceEl.textContent = p.preco;
+      } else {
+        priceEl.hidden = true;
+      }
 
-      var mensagem = encodeURIComponent('Olá! Tenho interesse no imóvel: ' + p.titulo + ' (' + p.bairro + ', ' + p.preco + ')');
+      var precoMsg = p.preco ? ', ' + p.preco : '';
+      var mensagem = encodeURIComponent('Olá! Tenho interesse no imóvel: ' + p.titulo + ' (' + p.bairro + precoMsg + ')');
       var waLink = 'https://wa.me/' + (p.corretor ? p.corretor.whatsapp : '5562995747746') + '?text=' + mensagem;
 
       document.getElementById('property-cta').href = waLink;
@@ -265,11 +271,14 @@
             card.className = 'portfolio-card';
             card.href = propertyUrl(r.id);
             var cover = resolveAsset((r.fotos && r.fotos[0]) || '');
+            var priceHtml = r.preco
+              ? '<p class="portfolio-card-price">' + escapeHtml(r.preco) + '</p>'
+              : '';
             card.innerHTML =
               '<div class="portfolio-card-image"><img src="' + escapeHtml(cover) + '" alt="' + escapeHtml(r.titulo) + '"></div>' +
               '<p class="portfolio-card-location">' + escapeHtml(r.bairro) + '</p>' +
               '<h3 class="portfolio-card-title">' + escapeHtml(r.titulo) + '</h3>' +
-              '<p class="portfolio-card-price">' + escapeHtml(r.preco) + '</p>';
+              priceHtml;
             related.appendChild(card);
           });
       }

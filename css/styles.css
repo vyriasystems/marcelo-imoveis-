@@ -143,6 +143,22 @@ address {
   color: var(--color-text);
 }
 
+.nav-item--featured a {
+  color: var(--color-text);
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-item--featured a::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-top: 0.28rem;
+  background-color: var(--color-text);
+  opacity: 0.45;
+}
+
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -2094,6 +2110,15 @@ body.is-nav-open {
   .nav-list a:focus-visible {
     color: var(--color-text-muted);
     padding-left: 0.5rem;
+  }
+
+  .nav-item--featured a {
+    font-size: 1.75rem;
+    font-weight: 500;
+  }
+
+  .nav-item--featured a::after {
+    display: none;
   }
 
   .header-nav.is-open .nav-list a {
